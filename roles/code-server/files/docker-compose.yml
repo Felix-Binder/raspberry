@@ -1,0 +1,21 @@
+---
+version: "2.1"
+services:
+  code-server:
+    container_name: code-server
+    image: lscr.io/linuxserver/code-server:arm64v8-latest
+    ports:
+      - 8443:8443
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Vienna
+      - PASSWORD=raspberry
+      - HASHED_PASSWORD=
+      - SUDO_PASSWORD=raspberry
+      - SUDO_PASSWORD_HASH=
+      - PROXY_DOMAIN=raspberry.fritz.box
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - /opt/code-server:/config
+    restart: unless-stopped
