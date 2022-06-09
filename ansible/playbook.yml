@@ -1,0 +1,5 @@
+---
+- name: Raspberry Playbook
+  hosts: all
+  roles:
+    - common
